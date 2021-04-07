@@ -15,7 +15,7 @@ class Singleton {
     public static getCassandraClient() {
         if (!Singleton.cassandraClient) {
             Singleton.cassandraClient = new cassandra.Client({
-                contactPoints: ["db:9042"],
+                contactPoints: ["scylla-db:9042"],
                 localDataCenter: "datacenter1",
                 pooling: {
                     maxRequestsPerConnection: 4000,
@@ -34,8 +34,8 @@ class Singleton {
     }
 }
 
-export const DATA_ROOT = "https://fast-and-slow.osoc.be/data";
-export const ADMIN_ROOT = "https://fast-and-slow.osoc.be/streams";
+export const DATA_ROOT = "https://smartdata.dev-vlaanderen.be/fast-and-slow-tree-index/data";
+export const ADMIN_ROOT = "https://smartdata.dev-vlaanderen.be/fast-and-slow-tree-index/tree";
 
 export const LOGGER = logger;
 export const STREAM_STORAGE = new CassandraEventStreamStorage(Singleton.getCassandraClient());
